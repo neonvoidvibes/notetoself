@@ -5,10 +5,12 @@ struct ContentView: View {
     @AppStorage("isDarkMode") var isDarkMode: Bool = true
 
     var body: some View {
-        if hasSeenOnboarding {
-            MainView()
-        } else {
-            OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+        Group {
+            if hasSeenOnboarding {
+                MainView()
+            } else {
+                OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+            }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }

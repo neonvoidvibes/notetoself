@@ -7,6 +7,7 @@ struct AddEntryView: View {
 
     @State private var text: String = ""
     @State private var selectedMood: Mood?
+    @FocusState private var textFieldFocused: Bool
 
     var body: some View {
         VStack(spacing: 20) {
@@ -17,7 +18,10 @@ struct AddEntryView: View {
                 .background(UIStyles.cardBackgroundColor)
                 .cornerRadius(10)
                 .submitLabel(.done)
-                .focused(true) // Auto-focus for speed
+                .focused($textFieldFocused)
+                .onAppear {
+                    textFieldFocused = true
+                }
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
