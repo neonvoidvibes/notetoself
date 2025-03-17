@@ -53,7 +53,7 @@ struct AddEntryView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(UIStyles.backgroundColor)
+        .background(UIStyles.defaultBackgroundView())
     }
 }
 

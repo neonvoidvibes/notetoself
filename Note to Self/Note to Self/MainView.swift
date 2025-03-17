@@ -12,7 +12,6 @@ struct MainView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(UIStyles.accentColor)
-                            // No back action needed in main view
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: SettingsView()) {
@@ -40,5 +39,6 @@ struct MainView: View {
                 }
         }
         .accentColor(UIStyles.accentColor)
+        .background(UIStyles.defaultBackgroundView())
     }
 }

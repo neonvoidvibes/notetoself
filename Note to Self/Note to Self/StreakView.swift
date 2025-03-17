@@ -10,7 +10,8 @@ struct StreakView: View {
                 let hasEntry = entries.contains { Calendar.current.isDate($0.timestamp!, inSameDayAs: day) }
                 Circle()
                     .fill(hasEntry ? UIStyles.accentColor : UIStyles.cardBackgroundColor)
-                    .frame(width: 10, height: 10)
+                    .frame(width: 14, height: 14)
+                    .shadow(color: UIStyles.accentColor.opacity(hasEntry ? 0.4 : 0.0), radius: 4, x: 0, y: 2)
             }
         }
         .padding()

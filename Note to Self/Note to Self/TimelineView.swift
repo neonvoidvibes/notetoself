@@ -25,7 +25,7 @@ struct TimelineView: View {
                 .padding()
             }
         }
-        .background(UIStyles.backgroundColor)
+        .background(UIStyles.defaultBackgroundView())
         .onAppear {
             viewModel.fetchEntries()
         }

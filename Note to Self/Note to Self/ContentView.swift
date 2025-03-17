@@ -13,5 +13,6 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
+        .background(UIStyles.defaultBackgroundView())
     }
 }
