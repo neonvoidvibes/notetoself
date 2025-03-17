@@ -3,6 +3,6 @@
     <entity name="JournalEntry" representedClassName="JournalEntry" syncable="YES">
         <attribute name="mood" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>
-        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="timestamp" attributeType="Date" defaultDateTimeInterval="-978310800" usesScalarValueType="NO"/>
     </entity>
 </model>

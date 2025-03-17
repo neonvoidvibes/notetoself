@@ -61,24 +61,3 @@ struct AddEntryView_Previews: PreviewProvider {
 }
 
 // Assuming PersistenceController for previews
-struct PersistenceController {
-    static let preview: PersistenceController = {
-        let controller = PersistenceController(inMemory: true)
-        let viewContext = controller.container.viewContext
-        return controller
-    }()
-
-    let container: NSPersistentContainer
-
-    init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "Note_to_Self")
-        if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
-        }
-        container.loadPersistentStores { _, error in
-            if let error = error {
-                fatalError("Error: \(error)")
-            }
-        }
-    }
-}
