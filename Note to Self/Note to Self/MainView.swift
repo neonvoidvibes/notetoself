@@ -6,7 +6,8 @@ struct MainView: View {
 
     var body: some View {
         NavigationStack {
-            TimelineView(context: context)
+            // Now that TimelineView doesn't require an init(context:)
+            TimelineView()
                 .navigationTitle("Note to Self")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
