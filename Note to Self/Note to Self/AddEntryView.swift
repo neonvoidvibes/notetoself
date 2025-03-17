@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreData // Added for JournalEntry
 
 struct AddEntryView: View {
     @Environment(\.managedObjectContext) var context
@@ -49,5 +50,35 @@ struct AddEntryView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(UIStyles.backgroundColor)
+    }
+}
+
+struct AddEntryView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddEntryView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+// Assuming PersistenceController for previews
+struct PersistenceController {
+    static let preview: PersistenceController = {
+        let controller = PersistenceController(inMemory: true)
+        let viewContext = controller.container.viewContext
+        return controller
+    }()
+
+    let container: NSPersistentContainer
+
+    init(inMemory: Bool = false) {
+        container = NSPersistentContainer(name: "Note_to_Self")
+        if inMemory {
+            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        }
+        container.loadPersistentStores { _, error in
+            if let error = error {
+                fatalError("Error: \(error)")
+            }
+        }
     }
 }
